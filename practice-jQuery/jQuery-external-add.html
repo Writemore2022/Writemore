@@ -1,0 +1,123 @@
+<!--
+    jQuery 외부 요소 추가
+        .before()
+            선택한 요소의 바로 앞에 새로운 요소나 컨텐츠를 추가
+        .after()
+            선택한 요소의 바로 뒤에 새로운 요소나 컨텐츠를 추가
+        .insertBefore()
+            선택한 요소를 해당 요소의 앞에 삽입
+        .insertAfter()
+            선택한 요소를 해당 요소의 뒤에 삽입
+-->
+
+<!--
+    기존 요소를 포함하는 요소 추가
+        .wrap()
+            기존 요소를 포함하는 새로운 요소나 컨텐츠를 추가
+        .wrapAll()
+            선택한 모든 요소를 포함하는 새로운 요소를 추가
+        .wrapInner()
+            선택한 모든 요소를 포함하는 새로운 요소를 추가
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery external add</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <style>
+      table,
+      tr,
+      td {
+        border: 2px solid red;
+        border-collapse: collapse;
+      }
+      table {
+        margin-bottom: 15px;
+      }
+      div {
+        margin: 10px;
+      }
+      .content,
+      .content2 {
+        border: 2px solid yellow;
+      }
+      .wrapper {
+        border: 2px solid green;
+      }
+    </style>
+    <script>
+      $(function () {
+        $('button').on('click', function () {
+          $('#firstRow').before('<tr><td>새로운 행이에요!</td></tr>');
+          // id가 "firstRow"인 요소인 바로 앞에 새로운 <tr> 요소를 추가
+        });
+        $('button').on('click', function () {
+          $('#firstRow').after('<tr><td>새로운 행이에요!</td></tr>');
+          // id가 "firstRow"인 요소인 바로 뒤에 새로운 <tr> 요소를 추가
+        });
+      });
+    </script>
+    <script>
+      $(function () {
+        $('button').on('click', function () {
+          $('<td>새로운 셀이에요!</td>').insertBefore('#secondColumn');
+          // id가 "secondColumn"인 요소의 바로 앞에 새로운 <td> 요소를 추가
+        });
+        $('button').on('click', function () {
+          $('<td>새로운 셀이에요!</td>').insertAfter('#secondColumn');
+          // id가 "secondColumn"인 요소의 바로 뒤에 새로운 <td> 요소를 추가
+        });
+      });
+    </script>
+    <script>
+      $(function () {
+        $('button').on('click', function () {
+          $('.content').wrap('<div class="wrapper"></div>');
+          // class가 "content"인 각 요소를 포함하는 새로운 요소를 추가
+          $('.content2').wrapAll('<div class="wrapper"></div>');
+          // class가 "content2"인 모든 요소를 포함하는 새로운 요소를 추가
+          $('.content2').wrapInner('<div class="wrapper"></div>');
+          // class가 "content"인 각 요소에 포함되는 새로운 요소를 추가
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>.before와 .after method</h1>
+    <table>
+      <tr id="firstRow">
+        <td>첫 번째 셀이에요!</td>
+        <td>두 번째 셀이에요!</td>
+      </tr>
+    </table>
+    <button>행 추가</button>
+
+    <hr />
+
+    <h1>.insertBefore()와 .insertAfter() method</h1>
+    <table>
+      <tr>
+        <td>첫 번째 셀이에요!</td>
+        <td id="secondColumn">두 번째 셀이에요!</td>
+      </tr>
+    </table>
+    <button>셀 추가</button>
+
+    <hr />
+
+    <h1>.wrap() method</h1>
+    <div class="content">첫 번째 컨텐츠에요!</div>
+    <div class="content">두 번째 컨텐츠에요!</div>
+    <button>div 요소 추가</button>
+
+    <hr />
+
+    <h1>.wrapAll()과 .wrapInner() method</h1>
+    <div class="content2">첫 번째 컨텐츠에요!</div>
+    <div class="content2">두 번째 컨텐츠에요!</div>
+    <button>div 요소 추가</button>
+  </body>
+</html>

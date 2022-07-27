@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery selector</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+      $(function () {
+        $('p').on('click', function () {
+          // <p> 요소를 모두 선택
+          $('span').css('fontSize', '28px'); // <span> 요소를 모두 선택
+          $('#id').css('border', '2px solid orange'); // id가 "id"인 요소 선택
+          $('.class').css('backgroundColor', 'lightgray'); // class가 "class"인 요소 선택
+        });
+      });
+      $(function () {
+        $('button').on('click', function () {
+          $('img[alt=practice]').attr('src', '../CSS 요소.PNG');
+          // <img> 요소 중 alt 값이 "html"인 요소를 모두 선택
+        });
+      });
+    </script>
+    <script>
+      $(function () {
+        const items = $('li');
+        // <li> 요소를 모두 선택하여 변수 items에 저장
+        //      요소가 저장된 이후 문서에 추가되거나 삭제된 요소들은 갱신하지 않음
+        $('button').on('click', function () {
+          $('#len').text(
+            '저장된 <li> 요소의 총 개수는 ' + items.length + '개입니다.'
+          );
+          $('li:has(span)').text('<span> 요소를 가지고 있는 아이템이에요!');
+          $(':checked').next().text('체크되어 있는 요소는 이 요소입니다.');
+          // 체크되어 있는 요소를 모두 선택
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>HTML tag selector</h1>
+    <p id="id">이제부터 <span>jQuery</span>를 다 같이 공부해보죠!</p>
+    <p class="class">마우스로 글씨를 클릭해보세요!</p>
+    <img src="../HTML 요소.PNG" alt="practice" /><br />
+    <button>속성을 바꾸죠!</button>
+
+    <hr />
+
+    <h1>선택한 요소의 필터링</h1>
+    <ul>
+      <li>첫 번째 아이템이에요!</li>
+      <li><span>두 번째</span> 아이템이에요!</li>
+      <li>세 번째 아이템이에요!</li>
+    </ul>
+    <button>선택된 요소의 길이는?</button>
+    <p id="len"></p>
+    <button>filtering/button>
+
+    <hr />
+
+    <h1>input 요소의 선택</h1>
+    <form>
+      <input type="checkbox" name="lecture" value="html" /> <span>HTML</span>
+      <br />
+      <input type="checkbox" name="lecture" value="css" /> <span>CSS</span>
+      <br />
+      <input type="checkbox" name="lecture" value="javascript" />
+      <span>JavaScript</span> <br />
+      <input type="checkbox" name="lecture" value="jquery" checked />
+      <span>jQuery</span>
+    </form>
+    <button>Selecting</button>
+  </body>
+</html>
+<!-- 
+    jQuery selector filtering
+        :eq(n)
+            선택한 요소 중 index가 n인 요소를 선택
+        :gt(n)
+            선택한 요소 중 index가 n보다 큰 요소를 모두 선택
+        :lt(n)
+            선택한 요소 중 index가 n보다 작은 요소를 모두 선택
+        :even
+            선택한 요소 중 index가 짝수인 요소를 모두 선택
+        :odd
+            선택한 요소 중 index가 홀수인 요소를 모두 선택
+        :first
+            선택한 요소 중 첫번째 요소를 모두 선택
+        :last
+            선택한 요소 중 첫번째 요소를 모두 선택
+        :animated
+            선택한 요소 중 애니메이션 효과가 실행 중인 요소를 모두 선택
+        :header
+            선택한 요소 중 h1부터 h6까지의 요소를 모두 선택
+        :lang(language)
+            선택한 요소 중 지정한 언어의 요소를 모두 선택
+        :not(selector)
+            선택한 요소 중 지정한 selector와 일치하지 않는 요소를 모두 선택
+        :root
+            선택한 요소 중 최상위 루트 요소를 모두 선택
+        :target
+            선택한 요소 중 웹 페이지 URI의 fragment identifier와 일치하는 요소를 모두 선택
+        :contain(text)
+            선택한 요소 중 지정한 text를 포함하는 요소를 모두 선택
+        :has(selector)
+            선택한 요소 중 지정한 선택자와 일치하는 자식 요소를 갖는 요소를 모두 선택
+        :empty
+            선택한 요소 중 자식 요소를 가지고 있지 않은 요소를 모두 선택
+        :parent
+            선택한 요소 중에서 자식 요소를 가지고 있는 요소를 모두 선택
+-->
+
+<!-- 
+    특정 <input> 요소를 선택할 수 있는 selector
+        :button
+            type 속성값이 "button"인 요소를 모두 선택
+        :checkbox
+            type 속성값이 "checkbox"인 요소를 모두 선택
+        :file
+            type 속성값이 "file"인 요소를 모두 선택
+        :image
+            type 속성값이 "image"인 요소를 모두 선택
+        :password
+            type 속성값이 "password"인 요소를 모두 선택
+        :radio
+            type 속성값이 "radio"인 요소를 모두 선택
+        :reset
+            type 속성값이 "reset"인 요소를 모두 선택
+        :submit
+            type 속성값이 "submit"인 요소를 모두 선택
+        :text
+            type 속성값이 "text"인 요소를 모두 선택
+        :input
+            <input>, <textarea>, <select>, <button> 요소를 모두 선택
+        :checked
+            type 속성값이 "checkbox" 또는 "radio"인 요소 중 체크되어 있는 요소를 모두 선택
+        :selected
+            <option> 요소 중에서 선택된 요소를 모두 선택
+        :focus
+            현재 포커스가 가지고 있는 요소를 선택
+        :disabled
+            비활성화 상태인 요소를 모두 선택
+        :enabled
+            활성화 상태인 요소를 모두 선택
+-->

@@ -1,0 +1,57 @@
+<!--
+    library: 자주 사용하는 코드들을 재사용할 수 있는 형태로 가공하여 효율을 높힘
+
+    jQuery: JavaScript 언어를 간편하게 사용할 수 있게 단순화시킨 오픈 소스 기반 library
+        DOM과 event에 관한 처리를 손쉽게 구현 가능
+        Ajax 응용프로그램 및 플로그인도 빠르게 개발 가능
+
+    대부분의 브라우저에서 지원
+    HTML DOM을 쉽게 조작하고 CSS 스타일도 간단히 적용 가능
+    애니메이션 효과나 대화형 처리를 간단하게 적용
+    같은 동작을 하는 프로그램을 더욱 짧은 코드로 구현
+    다양한 플러그인과 참고할 수 있는 문서가 많음
+    오픈 라이선스를 적용하여 누구나 자유롭게 사용 가능
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery start</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $('p').on('click', function () {
+          $('p').css('color', 'red');
+        });
+      });
+    </script>
+    <!--
+        서버에 다운로드 받아서 로드하는 경우
+            <script src="./node_modules/jquery/dist/jquery.js"></script>
+    -->
+
+    <!-- 
+    CDN(Content Delivery Network)
+        웹 사이트의 접속자가 서버에서 컨텐츠를 다운받을 때 가장 가까운 서버에서 다운받도록 하는 기술
+    
+        jQuery.com CDN
+            <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        구글 CDN
+            <scrip src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></scrip 
+        MS CDN
+            <scrip src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></scrip    
+        CDNJS CDN
+            <scrip src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></scrip    
+        jsDelivr CDN
+            <script src="https://cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
+    -->
+  </head>
+  <body>
+    <p>
+      이제부터 제이쿼리를 다 같이 공부해보죠!<br />
+      미우스로 글씨를 클릭해보세요!
+    </p>
+  </body>
+</html>

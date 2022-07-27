@@ -1,0 +1,163 @@
+<!--
+    요소의 복사
+        .clone()
+            선택한 요소를 복사하여 새로운 요소를 생성
+                => 기존 HTML element를 복사하여 새로운 HTML element를 생성
+                => 반드시 .append() 또는 .appendTo() method를 이용해야 함
+    
+    요소의 대체
+        .replaceAll()
+            선택한 요소를 지정된 요소로 대체
+                => selector, jQuery object, DOM element, 배열 등을 factor로 전달 받음
+        .replaceWith()
+            선택한 요소를 지정된 요소로 대체
+                => HTML 코드 형식의 문자열, jQuery object, DOM element, 배열 등을 factor로 전달받음
+                => 선택한 요소를 대체할 수 있는 컨텐츠를 반환하는 함수를 factor로 전달받을 수 있음
+                => .replaceAll() method와 비슷하지만 source와 target의 위치가 서로 반대
+                => 지정된 요소로 대체되어 제거된 기존 요소를 반환
+
+    요소의 삭제
+        .remove()
+            선택한 요소나 컨텐츠를 DOM 트리에서 삭제
+                => 삭제되는 요소와 연관된 모든 jQuery data와 event도 삭제
+        .detach()
+            선택한 요소를 DOM 트리에서 삭제
+                => 삭제되는 요소와 연관된 jQuery data와 event는 유지
+        .empty()
+            선택한 요소의 자식 요소를 모두 삭제
+                => .remove() 또는 .detach() method와 다르게 선택된 요소는 삭제되지 않음
+        .unwrap()
+            선택한 요소의 부모 요소를 삭제
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery clone and remove</title>
+    <style>
+      .leave-work {
+        border: 2px solid green;
+        margin: 10px;
+      }
+      #container {
+        border: 2px solid orange;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+      $(function () {
+        $('button').on('click', function () {
+          $('#firstItem').clone().appendTo('#list');
+          // id가 "firstItem"인 요소를 복사하여 id가 "list"인 요소에 추가
+        });
+        $('button').on('click', function () {
+          $('#firstItem').replaceAll('.item');
+          // class가 "item"인 요소를 복사하여 id가 ".item"인 요소에 추가
+        });
+        $('button').on('click', function () {
+          $('.item').replaceWith($('#firstItem'));
+          // class가 "item"인 모든 요소를 id가 "firstItem"인 요소에 추가
+        });
+      });
+    </script>
+    <script>
+      $(function () {
+        $('button').on('click', function () {
+          $('.content').remove('.first, .second');
+        });
+
+        let data;
+        $('#detachBtn').on('click', function () {
+          data = $('.content').detach();
+        });
+        // class가 "content"인 요소를 모두 삭제
+        $('#restoreBtn').on('click', function () {
+          $('#container').append(data);
+        });
+        // detach() method로 삭제되었던 모든 요소를 다시 추가
+
+        $('button').on('click', function () {
+          $('#container2').empty();
+        });
+        // id가 "container"인 요소의 자식 요소를 모두 삭제
+
+        $('button').on('click', function () {
+          $('span').unwrap();
+        });
+        // 모든 <span> 요소의 부모 요소를 삭제
+      });
+    </script>
+  </head>
+  <body>
+    <h1>.clone() method</h1>
+    <ul id="list">
+      <li id="firstItem">첫 번째 아이템이에요!</li>
+      <li>두 번째 아이템이에요!</li>
+      <li>세 번째 아이템이에요!</li>
+    </ul>
+    <button>clone</button>
+
+    <hr />
+
+    <h1>.replaceAll() method</h1>
+    <ul>
+      <li class="item" id="firstItem">첫 번째 아이템이에요!</li>
+      <li class="item" id="secondItem">두 번째 아이템이에요!</li>
+      <li class="item" id="thirdItem">세 번째 아이템이에요!</li>
+    </ul>
+    <button>replaceAll</button>
+
+    <hr />
+
+    <h1>.replaceWith() method</h1>
+    <ul>
+      <li class="item2" id="firstItem">첫 번째 아이템이에요!</li>
+      <li class="item2" id="secondItem">두 번째 아이템이에요!</li>
+      <li class="item2" id="thirdItem">세 번째 아이템이에요!</li>
+    </ul>
+    <button>replaceWith</button>
+
+    <hr />
+
+    <h1>.remove() method</h1>
+    <div>
+      <div class="content first">첫 번째 컨텐츠에요!</div>
+      <div class="content second">두 번째 컨텐츠에요!</div>
+      <div class="content third">세 번째 컨텐츠에요!</div>
+    </div>
+    <button>remove</button>
+
+    <hr />
+
+    <h1>.detach() method</h1>
+    <div id="container">
+      <div>첫 번째 컨텐츠에요!</div>
+      <div class="content">두 번째 컨텐츠에요!</div>
+      <div class="content">세 번째 컨텐츠에요!</div>
+    </div>
+    <button id="detachBtn">detach</button>
+    <button id="restoreBtn">restore</button>
+
+    <hr />
+
+    <h1>.empty() method</h1>
+    <div id="container2" style="border: 3px solid teal; padding: 5px">
+      <div>첫 번째 컨텐츠에요!</div>
+      <div>두 번째 컨텐츠에요!</div>
+      <div>세 번째 컨텐츠에요!</div>
+    </div>
+    <button>empty</button>
+
+    <hr />
+
+    <h1>.unwrap() method</h1>
+    <div class="leave-work" id="container3">
+      <div class="leave-work"><span>첫 번째</span> 컨텐츠에요!</div>
+      <div class="leave-work"><span>두 번째</span> 컨텐츠에요!</div>
+      <div class="leave-work"><span>세 번째</span> 컨텐츠에요!</div>
+    </div>
+    <button>unwrap</button>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!--
+    jQuery 내부 요소 추가
+        .append()
+            선택한 요소의 마지막에 새로운 요소나 컨텐츠를 추가
+        .prepend()
+            선택한 요소의 처음에 새로운 요소나 컨텐츠를 추가
+        .appendTo()
+            선택한 요소를 해당 요소의 마지막에 삽입
+                => 동작은 .append()와 같지만 source와 target의 위치가 서로 반대
+        .prependTo()
+            선택한 요소를 해당 요소의 처음에 삽입
+                => 동작은 .prepend()와 같지만 source와 target의 위치가 서로 반대
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery internal add</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+      $(function () {
+        $('button').on('click', function () {
+          $('#list').append('<li> 새로 추가된 아이템이에요!');
+          $('li').prepend('새로 추가된 컨텐츠에요! ');
+        });
+      });
+    </script>
+    <script>
+      $(function () {
+        $('#firstBtn').on('click', function () {
+          $('#firstItem').appendTo('#list2');
+          // id가 "list"인 요소의 맨 마지막에 id가 "firstItem"인 요소를 추가
+        });
+        $('#secondBtn').on('click', function () {
+          $('#secondItem').appendTo('#list2');
+          // id가 "list"인 요소의 맨 마지막에 id가 "secondItem"인 요소를 추가
+        });
+        $('#thirdBtn').on('click', function () {
+          $('#thirdItem').appendTo('#list2');
+          // id가 "list"인 요소의 맨 마지막에 id가 "thirdItem"인 요소를 추가
+        });
+      });
+    </script>
+    <script>
+      $(function () {
+        $('button').on('click', function () {
+          $('<b>새로 추가된 컨텐츠에요!</b>').prependTo('.item');
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>.append()와 .prepend method</h1>
+    <ul id="list">
+      <li>첫 번째 아이템이에요!</li>
+      <li>두 번째 아이템이에요!</li>
+      <li>세 번째 아이템이에요!</li>
+    </ul>
+    <button>아이템 추가</button>
+
+    <hr />
+
+    <h1>.appendTo() 메소드</h1>
+    <ul id="list2">
+      <li id="firstItem">첫 번째 아이템이에요!</li>
+      <li id="secondItem">두 번째 아이템이에요!</li>
+      <li id="thirdItem">세 번째 아이템이에요!</li>
+    </ul>
+    <button id="firstBtn">첫 번째 아이템 추가</button>
+    <button id="secondBtn">두 번째 아이템 추가</button>
+    <button id="thirdBtn">세 번째 아이템 추가</button>
+
+    <hr />
+
+    <h1>.prependTo() method</h1>
+    <ul>
+      <li class="item">첫 번째 아이템이에요!</li>
+      <li class="item">두 번째 아이템이에요!</li>
+      <li>세 번째 아이템이에요!</li>
+    </ul>
+    <button>컨텐츠 추가</button>
+  </body>
+</html>
