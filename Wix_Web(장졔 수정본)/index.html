@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wix clone</title>
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <div id="wrap">
+      <header id="header">
+        <div id="logo">
+          <img src="./images/Writing_logo.png" alt="logo" />
+        </div>
+        <div id="search">
+          <input type="text" placeholder="검색어를 입력하세요" />
+          <button onclick="">검색</button>
+        </div>
+        <div id="menu">
+          <ul id="gnb">
+            <li><a href="#">소개</a></li>
+            <li>
+              <a href="#">모임찾기</a>
+              <ul id="lnb">
+                <li><a href="#">지역기반</a></li>
+                <li><a href="#">목적기반</a></li>
+              </ul>
+            </li>
+            <li><a href="#">구인/구직</a></li>
+          </ul>
+        </div>
+      </header>
+      <main id="main">
+        <!--background-image 넣을 공간-->
+        <div id="slide"></div>
+        <div id="contents">
+          <!--contents 임시 공간 (필요하면 사용)-->
+          <div id="group-info">
+            <h1>당신의 글을 모아</h1>
+            <ul id="group-list">
+              <li>
+                <img />
+                <p>소모임1</p>
+              </li>
+              <li>
+                <img />
+                <p>소모임2</p>
+              </li>
+              <li>
+                <img />
+                <p>소모임3</p>
+              </li>
+              <li>
+                <img />
+                <p>소모임4</p>
+              </li>
+            </ul>
+          </div>
+
+          <hr />
+
+          <div id="test-map">
+            <h1>그곳으로</h1>
+            <p align="middle">
+              <iframe
+                src="../test-map.html"
+                style="width: 700px; height: 700px"
+                frameborder="0"
+              ></iframe>
+            </p>
+          </div>
+        </div>
+      </main>
+      <footer id="footer">footer</footer>
+    </div>
+    <script src="./js/jquery-1.12.4.js"></script>
+    <script src="./js/header.js"></script>
+  </body>
+</html>
