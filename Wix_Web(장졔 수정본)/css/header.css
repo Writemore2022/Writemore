@@ -1,0 +1,72 @@
+#logo{
+    width: 250px;
+    height: 100px;
+    background-color: blue;
+    float: left;
+    position: relative; /*img 위치 설정을 위한 기준점*/
+}
+#logo>img{
+    position: absolute; /*상위 기준(#logo)를 기준으로*/
+    top: 5px; 
+    left: 15px;
+    width: 220px;
+    height: 88px;
+}
+#search{
+    width: 450px;
+    height: 100px;
+    background-color: coral;
+    float: left;
+    padding-top: 35px;
+    padding-left: 50px;
+    box-sizing: border-box;
+}
+#search>input{
+    width: 300px;
+    height: 30px;
+    font-size: 15px;
+}
+#search>button{
+    width: 50px;
+    height: 30px;
+    font-size: 15px;
+}
+#gnb{ /*메인메뉴*/
+    width: 450px;
+    height: 50px;
+    margin-top: 25px;
+    margin-right: 200px;
+    float: right; /*오른쪽->왼쪽*/
+    background-color: brown;
+}
+#gnb>li{
+    float: left;
+}
+#gnb>li>a{
+    display: block; /*a는 원래 inline-block 속성이라 block(가로,세로 설정 가능)으로 설정*/
+    width: 150px;
+    height: 50px;
+    background-color: antiquewhite;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 10px;
+    box-sizing: border-box; /*padding으로 인해 박스 크기가 커지는 것을 방지*/
+}
+#gnb>li>a:hover{
+    color: aliceblue;
+    background-color: gray;
+}
+#lnb>li>a{ /*서브메뉴 칸*/
+    display: block;
+    width: 150px;
+    height: 50px;
+    background-color: violet;
+    font-size: 15px;
+    text-align: center;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+
+#lnb{
+    display: none; /*일단 숨겨놓고 js로 gnb에 hover 했을 때 보이도록 설정*/
+}

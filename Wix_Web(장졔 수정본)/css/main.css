@@ -1,0 +1,35 @@
+#slide {
+  background-image: url(../../글로모여\ 가로형\ 홍보.png);
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
+  width: 100vw;
+  height: 300px;
+  display: inline-block;
+}
+#contents {
+  width: 100vw;
+  max-width: 1180px;
+  height: 1500px;
+  display: block;
+  position: relative;
+  bottom: 70px;
+  background-color: burlywood;
+}
+#group-info {
+  background-color: cadetblue;
+  width: 100vw;
+  height: 300px;
+  max-width: 1180px;
+}
+#group-list {
+  display: flex;
+}
+#group-list li {
+  display: block;
+}
+#group-list li img {
+  width: 50px;
+  height: 100px;
+  background-color: green;
+}

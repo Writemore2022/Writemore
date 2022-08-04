@@ -1,0 +1,32 @@
+/*칸 나뉜거 확실히 보려고 일부러 진한 색 넣었음!*/
+/*대충 완성되고 나서 배경 색 맞추자요~*/
+* {
+  margin: 0px auto;
+  padding: 0px;
+}
+li {
+  list-style-type: none; /*li의 기본 점 제거*/
+}
+a {
+  text-decoration: none; /*a태그 기본 값 밑줄 제거*/
+}
+#wrap {
+  width: auto;
+  height: auto;
+  background-color: aliceblue;
+}
+#header {
+  width: auto;
+  height: 100px;
+  background-color: aqua;
+}
+#main {
+  width: 100vw;
+  height: 2000px;
+  background-color: yellow;
+}
+#footer {
+  width: auto;
+  height: 200px;
+  background-color: bisque;
+}
